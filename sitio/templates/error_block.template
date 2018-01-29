@@ -1,7 +1,0 @@
-<div class="panel panel-danger clearfix" style="width:50%; margin:5% 25%;">
-  <div class="panel-heading"><h3 class="bg-danger"><center>{title}</center></h3></div>
-    <div class="panel-body">      
-    {content}
-    </div>
-  </div>
-</div>

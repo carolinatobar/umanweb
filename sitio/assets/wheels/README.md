@@ -1,2 +1,0 @@
-# Human blue
-Bailac graphs
