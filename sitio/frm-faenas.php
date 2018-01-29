@@ -1,0 +1,243 @@
+<?php
+  require 'autoload.php';
+
+  $acc = new Acceso();
+
+  $TITULO    = $module_label; //'Gestión de Faenas';
+  $SUBTITULO = '';
+?>
+<style>
+  <?php include_once("assets/css/detalle-equipo.css") ?>
+  <?php include_once("assets/css/funky-radio.css") ?>
+</style>
+<!-- ESTILO TABLAS -->
+<link rel="stylesheet" href="assets/css/uman/tabla.css">
+<!-- ESTILO BASE ESTRUCTURA -->
+<link rel="stylesheet" href="assets/css/uman/base.css">
+
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="container">
+  
+  <!-- TÍTULO DE PÁGINA -->
+  <div class="cc-divider">
+    <span class="titulo-pagina"><?=$TITULO?></span>
+    <span class="subtitulo-pagina"><?=$SUBTITULO?></span>
+  </div>
+
+  <!-- MENÚ DE PÁGINA -->
+  <div class="filtro-contenido">
+    <div class="<?=Core::col(10,10)?>"></div>
+    <div class="<?=Core::col(2,2,12,12)?>">
+      <div class="frm-group">
+        <button type="button" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Crear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div id="contenido">
+    <table id="tabla-faenas" class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Nombre</th>
+          <th>Empresa</th>
+          <th>Nombre de Base de Datos</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <th></th>
+        <th><input type="text" class="form-control foot-filter" name="" data-index="1" oninput="filtro(this);"></th>
+        <th><input type="text" class="form-control foot-filter" name="" data-index="2" oninput="filtro(this);"></th>
+        <th><input type="text" class="form-control foot-filter" name="" data-index="3" oninput="filtro(this);"></th>
+      </tfoot>
+      <tbody>        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+  var tabla;
+  $(function(){
+    tabla = $("#tabla-faenas").DataTable({
+      dom: 'Brtip',
+      ajax:{
+        url: 'ajax/faenas/faenas.php',
+        type: 'POST',
+      },
+      searching: true,
+      responsive: false,
+      buttons: {
+        buttons:[
+          {
+            extend: 'excelHtml5',
+            text: '<i class="fa fa-file-excel-o" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Descargar</span>',
+            className: 'btn btn-info',
+            filename: "<?=$TITULO?> - <?=date("d-m-Y")?>",
+            customize: function(xlsx) {
+              var sheet = xlsx.xl.worksheets['sheet1.xml'];
+              var downrows = 3;
+              var clRow = $('row', sheet);
+              var msg;
+              //update Row
+              clRow.each(function() {
+                var attr = $(this).attr('r');
+                var ind = parseInt(attr);
+                ind = ind + downrows;
+                $(this).attr("r", ind);
+              });
+
+              // Update  row > c
+              var total_rows = 0;
+              $('row c ', sheet).each(function() {
+                var attr = $(this).attr('r');
+                var pre = attr.substring(0, 1);
+                var ind = parseInt(attr.substring(1, attr.length));
+                ind = ind + downrows;
+                $(this).attr("r", pre + ind);
+                total_rows = ind;
+              });
+
+              function Addrow(index, data) {
+
+                msg = '<row r="' + index + '">';
+                for (var i = 0; i < data.length; i++) {
+                  var key = data[i].k;
+                  var value = data[i].v;
+                  var formula = data[i].f;
+                  if(formula==undefined){
+                    msg += '<c t="inlineStr" r="' + key + index + '">';
+                    msg += '<is>';
+                    msg += '<t>' + value + '</t>';
+                    msg += '</is>';
+                    msg += '</c>';
+                  }
+                  else{
+                    msg += '<c r="' + key + index + '" s="3" t="str">';
+                    msg += '<f>'+formula+'</f>';
+                    msg += '<v></v>';
+                    msg += '</c>';
+                  }
+                }
+                msg += '</row>';
+                return msg;
+              }
+
+              //título
+              var ti = Addrow(1, [{ k: 'A', v: '<?=$TITULO?> - <?=date("d-m-Y")?>' }]);
+              var r1 = Addrow(2, [{ k: 'A', v: ' Fecha    : ' }, { k: 'B', v: '<?=date("d-m-Y")?>' }]);
+              <?php
+                //                 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27   28   29   30   31
+                $cols = array(' ','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE');
+                $pos = 1;
+                $c = '';
+                $merge = '';
+                $cells = '';
+                $heads = '';
+                for($i=4; $i<($max_pos*3)+4; $i+=3){
+                  $c .= "{ k: '{$cols[$i]}', v: '{$nomenclatura[$pos]}' },";
+                  $merge .= "<mergeCell ref=\"{$cols[$i]}4:{$cols[$i+2]}4\" />";
+                  $cells .= "'c[r={$cols[$i]}4]',";
+                  $pos++;
+                }
+                for($i=4; $i<($max_pos*3)+4; $i++){
+                  $heads .= "'c[r={$cols[$i]}5]',";
+                }
+                $merge .= "<mergeCell ref=\"A1:{$cols[$i]}1\" />";
+                $cells .= "'c[r=A1]'";
+              ?>
+              var r2 = Addrow(4, [<?=$c?>]);
+
+              var cells = [<?=$cells?>];
+              var heads = [<?=$heads?>];
+
+              var merged = '<mergeCell ref="A'+(total_rows+1)+':B'+(total_rows+1)+'" />';
+              var up = ''; va = ''; r3 = ''; r4 = ''; r5 = ''; r6 = '';
+              // var up = Addrow(total_rows+1,[{ k: 'A', v: 'Universo Proyecto' }, { k: 'C', f: 'SUM(C6:C'+total_rows+')' }]);
+              // total_rows += 2;
+              // var va = Addrow(total_rows++, [{ k: 'A', v: '' }]);
+              
+              // var r3 = Addrow(total_rows, [{ k: 'A', v: 'TABLA TIPO SENSORES' }]);
+              // merged += '<mergeCell ref="A'+(total_rows)+':D'+(total_rows)+'" />';
+
+              // var r4 = Addrow(total_rows+1, [{ k: 'A', v: 'Interno' }, { k: 'B', v: 'TMS 2' }, { k: 'C', v: 'Sensor interno de presión y temperatura' }]);
+              // merged += '<mergeCell ref="C'+(total_rows+1)+':D'+(total_rows+1)+'" />';
+              
+              // var r5 = Addrow(total_rows+2, [{ k: 'A', v: 'Externo' }, { k: 'B', v: 'TMS 24' }, { k: 'C', v: 'Sensor externo de presión y temperatura' }]);
+              // merged += '<mergeCell ref="C'+(total_rows+2)+':D'+(total_rows+2)+'" />';
+              
+              // var r6 = AddRow(total_rows, [{ k: 'A', v: 'Canister' }, { k: 'B', v: 'TMS 2' }, { k: 'C', v: 'Sensor externo de presión y temperatura' }]);
+
+
+              sheet.childNodes[0].childNodes[0].childNodes[0].outerHTML = '<col min="1" max="1" width="9" customWidth="1"/>';
+              sheet.childNodes[0].childNodes[1].innerHTML = ti + r1 + r2 + sheet.childNodes[0].childNodes[1].innerHTML + up + va + r3 + r4 + r5;
+              sheet.childNodes[0].childNodes[2].innerHTML = '<?=$merge?>'+merged;
+              var rows = sheet.childNodes[0].childNodes[1].getElementsByTagName("row");
+
+              
+              $("c[r=A4] t", sheet).text('');
+
+              $.each(cells, function(i,o){ $(o, sheet).attr('s', '51'); });
+              // $.each(heads, function(i,o){ $(o, sheet).attr('s', '251'); });
+
+              console.log(rows);
+            },
+          }, 
+          {
+            extend: 'print',
+            text: '<i class="fa fa-print" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> Imprimir</span>',
+            key:{
+              key: 'p',
+              altKey: true
+            },
+            className: 'btn btn-info',
+            title: "<?=$TITULO?> - <?=date("d-m-Y")?>",
+          }
+        ]
+      },
+      columns:[
+        { data: "btn" },
+        { data: "nombre" },
+        { data: "empresa" },
+        { data: "nombre_db" },
+      ],
+      columnDefs: [
+        { "orderable": false, "targets": 0 },
+        { "orderable": true, "targets": 1 },
+        { "orderable": true, "targets": 2 },
+        { "orderable": true, "targets": 3 },        
+      ],
+      autoWidth: false,
+      paging: true,
+      info: false,
+      language: {
+        url: "assets/datatables-1.10.15/lang/Spanish.json",
+        loadingRecords: '<div class="loader show"></div>'
+      }
+    })
+    .on("init.dt", function(){
+      var wt = parseInt($("#contenido").css("width"));
+      var wb = 330;
+      var x = wt - wb ;
+      var top = 25;
+      var left = 3;
+      if(wt <= 768){
+        wb = 120;
+        x = wt - wb;
+        if(wt <= 490){
+          top = -50;
+          left = -1;
+        }
+      }
+      $("div.dt-buttons.btn-group")
+        .css("margin", "auto "+x+"px auto "+left+"px")
+        .css("width",wb+"px");
+    });
+  });
+
+  function filtro(o){
+    tabla.columns($(o).data('index')).search( o.value ).draw();
+  }
+</script>

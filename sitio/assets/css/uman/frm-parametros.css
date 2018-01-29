@@ -1,0 +1,65 @@
+.google-api, .here-api{
+	width: 64px;
+  height: 76px;
+}
+.google-api{
+  background: url(../../img/map-api/google.png) !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.here-api{
+  background: url(../../img/map-api/here.png) !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.btn span.glyphicon {    			
+  opacity: 0;				
+}
+.btn.active span.glyphicon {				
+  opacity: 1;
+  font-size: xx-large;
+}
+.universal, .con-equipo, .con_fecha, .sin_fecha{
+  width: 64px;
+  height: 76px;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.universal{
+  background: url('../../img/esquemas/universal.png') !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.con-equipo{
+  background: url('../../img/esquemas/10011111.png') !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.con_fecha{
+  background: url('../../img/cuadro_neumatico_con_fecha.png') !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.sin_fecha{
+  background: url('../../img/cuadro_neumatico_sin_fecha.png') !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+.form-control{
+  height: 33px;
+}
+.input-group-addon:first-child{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.input-group-addon:last-child{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

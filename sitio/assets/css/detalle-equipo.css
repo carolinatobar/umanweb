@@ -1,0 +1,761 @@
+ /*.modal-sub {
+    padding: 4px !important;
+  }
+  .modal-dialog {
+    margin: 6px;
+  }*/
+ 
+ .modal-header {
+     padding: 8px 14px 8px 14px;
+     height: 60px;
+     text-align: left;
+     background: #3c8dbc;
+     color: #FFF;
+ }
+ /*.modal-body {
+    padding: 15px 15px 1px 15px;
+  }
+  .modal-footer {
+    padding: 8px 12px;
+  }*/
+ 
+ .modal-title-i {
+     float: left;
+ }
+ 
+ .modal-title-1 {
+     font-size: 16px;
+     font-weight: 800;
+     margin-left: 50px;
+     padding-top: 4px;
+ }
+ 
+ .modal-title-2 {
+     font-size: 12px;
+     color: #dedede;
+     margin-left: 50px;
+ }
+ 
+ .pair {
+     max-width: 280px;
+     display: inline-block;
+ }
+ 
+ .tire-box {
+     width: 120px;
+     height: 140px;
+     background-color: white;
+     border: 1px solid #c1c1c1;
+     display: inline-block;
+     margin: 4px;
+     cursor: pointer;
+     cursor: hand;
+ }
+ 
+ .tire-box-header {
+     height: 38px;
+     border-bottom: 1px solid #dedede;
+ }
+ 
+ .tire-box-header .tire-box-header__number {
+     width: 60px;
+     height: inherit;
+     background-color: #f4f4f4;
+     border-right: 1px solid #dedede;
+     /*background-image: url('./img/tire.png');*/
+     /*background-repeat: no-repeat;*/
+     /*background-size: 18px;*/
+     /*background-position: 10px 10px;*/
+     float: left;
+ }
+ 
+ .tire-box-header .tire-box-header__number b {
+     font-weight: 800;
+     font-size: 23px;
+     /*margin-left: 10px;*/
+     margin-top: 3px;
+     display: block;
+     color: #565656;
+     text-align: center;
+ }
+ 
+ .tire-box-header__sensor {
+     width: 58px;
+     height: inherit;
+     float: right;
+     /* margin-top: -38px; */
+ }
+ 
+ .tire-box-header .tire-box-header__sensor.Interno {
+     background-image: url('./assets/img/sensor_interno.png');
+     background-repeat: no-repeat;
+     background-size: 42px;
+     background-position: 8px 2px;
+ }
+
+ .sensor.Interno {
+     background-image: url('./assets/img/sensor_interno.png');
+     background-repeat: no-repeat;
+     background-size: 44px;
+     background-position: 8px 2px;
+     width: 60px;
+     height: 44px;
+     margin-top: -10px;
+ }
+ 
+ .sensor.Externo,
+ .sensor.Canister {
+     background-image: url('./assets/img/sensor_externo.png');
+     background-repeat: no-repeat;
+     background-size: contain;
+     background-position: 18px 0;
+     width: 60px;
+     height: 40px;
+     margin-top: -12px;
+ }
+
+ .tire-box-header .tire-box-header__sensor.Aceite {
+     background-image: url('./assets/img/sensor.png');
+     background-repeat: no-repeat;
+     background-size: 17px;
+     background-position: 18px 2px;
+ }
+
+ .sensor.Aceite {
+     background-image: url('./assets/img/sensor.png');
+     background-repeat: no-repeat;
+     background-size: 17px;
+     background-position: 18px 2px;
+     width: 60px;
+     height: 44px;
+     margin-top: -10px;
+ }
+ 
+ .neumatico {
+     background-size: 60px 44px !important;
+     background-repeat: no-repeat !important;
+     background-position: center;
+     width: 60px;
+     height: 44px;
+     margin-top: -14px;
+ }
+ 
+ .tire-box-header .tire-box-header__sensor.Externo,
+ .tire-box-header .tire-box-header__sensor.Canister {
+     background-image: url('./assets/img/sensor_externo.png');
+     background-repeat: no-repeat;
+     background-size: 22px;
+     background-position: 18px 0;
+ }
+ /* Estilos Temperatura */
+ 
+ .tire-box-temp {
+     height: 40px;
+     /*border-bottom: 1px solid #dedede;*/
+ }
+ 
+ .tire-box-temp .tire-box-temp__title {
+     float: left;
+     width: 52%;
+     height: 100%;
+     font-weight: 700;
+     font-size: 90%;
+     padding-left: 10px;
+ }
+ 
+ .tire-box-temp .tire-box-temp__title>span.title_single {
+     display: block;
+     padding-top: 8px;
+     font-size: 90% !important;
+ }
+ 
+ .tire-box-temp .tire-box-temp__title>span.title_double {
+     display: block;
+     line-height: 12px;
+     padding-top: 6px;
+ }
+ 
+ .tire-box-temp .tire-box-temp__value {
+     float: right;
+     width: 48%;
+     height: 100%;
+     /*font-weight: 800;*/
+     font-size: 20px;
+     padding-top: 5px;
+ }
+ /* Estilos Presión */
+ 
+ .tire-box-psi {
+     height: 40px;
+     padding-left: 5px;
+ }
+ 
+ .tire-box-extra {
+     height: 20px;
+     text-align: center;
+     padding-top: 2px;
+     font-size: 10px;
+ }
+ 
+ .tire-box-psi .tire-box-psi__title {
+     float: left;
+     width: 52%;
+     height: 100%;
+     font-weight: 700;
+     font-size: 95% !important;
+ }
+ 
+ .tire-box-psi .tire-box-psi__title>span.title_double {
+     display: block;
+     line-height: 14px;
+     padding-top: 10px;
+     font-size: 90% !important;
+ }
+ 
+ .tire-box-psi .tire-box-psi__value {
+     float: left;
+     width: 48%;
+     height: 100%;
+     font-size: 20px;
+     padding-top: 5px;
+     /*background-color: red;*/
+ }
+ 
+ .tire-box-date {
+     height: 40px;
+     align-content: center;
+     text-align: center;
+     vertical-align: middle;
+     font-size: 80%;
+     padding-top: 5px;
+ }
+ 
+ .tire-box-psi .tire-box-psi__value>span {
+     font-size: 10px;
+ }
+ /* Box Colors + Overrides */
+ /* Cuadro Verde */
+ 
+ .tire-box-body.green,
+ .green,
+ .black {
+     background-color: #4CAF50;
+     color: white;
+ }
+ /* Border Inferior Cuadro Temperatura */
+ 
+ .tire-box-body.green .tire-box-temp {
+     border-bottom: 1px solid #2E7D32;
+ }
+ /* Div Recomendation/Fecha Cuadro Presion */
+ 
+ .tire-box-body.green .tire-box-extra {
+     background-color: #2E7D32;
+ }
+ /* Cuadro Lila */
+ 
+ .tire-box-body.lilac,
+ .lilac {
+     background-color: #5a287f;
+     color: white;
+ }
+ /* Border Inferior Cuadro Temperatura */
+ 
+ .tire-box-body.lilac .tire-box-temp {
+     border-bottom: 1px solid #E1BEE7;
+ }
+ /* Div Recomendation/Fecha Cuadro Presion */
+ 
+ .tire-box-body.lilac .tire-box-extra {
+     background-color: #36184C;
+ }
+ /* Cuadro Rojo */
+ 
+ .tire-box-body.red,
+ .red {
+     background-color: #c20e1a;
+     color: white;
+ }
+ /* Border Inferior Cuadro Temperatura */
+ 
+ .tire-box-body.red .tire-box-temp {
+     border-bottom: 1px solid #ee5a5a;
+ }
+ /* Div Recomendation/Fecha Cuadro Presion */
+ 
+ .tire-box-body.red .tire-box-extra {
+     background-color: #8F0A13;
+ }
+ /* Cuadro Gray */
+ 
+ .tire-box-body.gray,
+ .gray {
+     background-color: #868585;
+     color: #222;
+ }
+ /* Border Inferior Cuadro Temperatura */
+ 
+ .tire-box-body.gray .tire-box-temp {
+     border-bottom: 1px solid #D2D2D2;
+ }
+ /* Div Recomendation/Fecha Cuadro Presion */
+ 
+ .tire-box-body.gray .tire-box-extra {
+     background-color: #858685;
+ }
+ /* Cuadro Naranjo */
+ 
+ .tire-box-body.orange,
+ .orange {
+     background-color: #E47C14;
+     color: #222222;
+ }
+ /* Border Inferior Cuadro Temperatura */
+ 
+ .tire-box-body.orange .tire-box-temp {
+     border-bottom: 1px solid #E49A1B;
+ }
+ /* Div Recomendation/Fecha Cuadro Presion */
+ 
+ .tire-box-body.orange .tire-box-extra {
+     background-color: #cd5b1c;
+     color: #222;
+ }
+ /* Cuadro Amarillo */
+ 
+ .tire-box-body.yellow,
+ .yellow {
+     background-color: #FBEB07;
+     color: #222222;
+ }
+ /* Border Inferior Cuadro Temperatura */
+ 
+ .tire-box-body.yellow .tire-box-temp {
+     border-bottom: 1px solid #FBEB07;
+ }
+ /* Div Recomendation/Fecha Cuadro Presion */
+ 
+ .tire-box-body.yellow .tire-box-extra {
+     background-color: #C8BB06;
+ }
+ 
+ .neum-big {
+     width: 44px;
+     height: 110px;
+     position: absolute;
+     -webkit-border-radius: 7px;
+     -moz-border-radius: 7px;
+     border-radius: 4px;
+     background-size: 44px 110px !important;
+     background-repeat: no-repeat !important;
+     background-position: center;
+     /* box-shadow: 0 5px 10px rgba(0, 0, 0, .2); */
+ }
+ 
+ .neum-none {
+     background: url('assets/img/rueda_fantasma.png');
+ }
+ 
+ .neum-gray {
+     background: url('assets/img/rueda_gris.png');
+ }
+ 
+ .neum-orange {
+     background: url('assets/img/rueda_naranja.png');
+ }
+ 
+ .neum-yellow {
+     background: url('assets/img/rueda_amarilla.png');
+ }
+ 
+ .neum-red {
+     background: url('assets/img/rueda_roja.png');
+ }
+ 
+ .neum-black {
+     background: url('assets/img/rueda.png');
+ }
+ 
+ .neum-lilac {
+     background: url('assets/img/rueda_ambar.png');
+ }
+ 
+ .neum-big-11,
+ .neum-big-21 {
+     left: 35.5%;
+ }
+ 
+ .neum-big-14,
+ .neum-big-24 {
+     left: 59.5%;
+ }
+ 
+ .neum-big-12,
+ .neum-big-22 {
+     left: 40.8%;
+ }
+ 
+ .neum-big-13,
+ .neum-big-23 {
+     left: 54%;
+ }
+ 
+ .neum-big-1112,
+ .neum-big-2122 {
+     left: 38%;
+ }
+ 
+ .neum-big-1314,
+ .neum-big-2324 {
+     left: 56.6%;
+ }
+ 
+ .eje1-big {
+     margin-top: -35px;
+ }
+ 
+ .eje2-big {
+     margin-top: 200px;
+ }
+ 
+ .esquema {
+     width: 180px;
+     height: 280px;
+     margin: 30px auto 180px auto;
+     background: url('assets/img/esquema.png');
+     background-size: 180px 280px !important;
+     background-repeat: no-repeat !important;
+     background-position: center;
+ }
+ 
+ .pop-eje1 {
+     top: 0px;
+ }
+ 
+ .pop-eje2 {
+     top: 225px;
+ }
+ 
+ .popover-fixed {
+     position: absolute;
+     display: block;
+ }
+ 
+ .pop-11 {
+     left: calc(25.5% - 176px) !important;
+ }
+ 
+ .pop-21 {
+     left: calc(25.5% - 44px) !important;
+ }
+ 
+ .pop-12 {
+     left: calc(25.5% - 44px) !important;
+ }
+ 
+ .pop-22 {
+     left: calc(39.5% - 44px) !important;
+     top: 354px;
+     margin-top: 11px;
+ }
+ 
+ .pop-13,
+ .pop-23 {
+     left: calc(45.4% + 44px) !important;
+     top: 354px;
+ }
+ 
+ .pop-14,
+ .pop-24 {
+     left: calc(59.5% + 44px) !important;
+ }
+ 
+ .pop-1112,
+ .pop-2122 {
+     left: calc(28% - 44px) !important;
+ }
+ 
+ .pop-1314,
+ .pop-2324 {
+     left: calc(56.6% + 44px) !important;
+ }
+ 
+ .lblpos {
+     font-size: 2.5em;
+     font-weight: 800;
+     text-align: center;
+     /* text-shadow: 2px 2px 4px #263238; */
+     position: relative;
+ }
+ 
+ .nopadding {
+     padding: 0 !important;
+ }
+ 
+ #detalle_equipo {
+     height: 460px;
+ }
+ /* Alerta / Baliza */
+ 
+ .alert.alert-danger {
+     max-width: 250px;
+     height: 60px;
+     padding: 10px;
+     margin-bottom: 5px;
+ }
+ 
+ #btn_reconocer_alarma {
+     float: left;
+     margin-left: 20px;
+     margin-top: 3px;
+     outline: none;
+ }
+ 
+ .led-red {
+     float: left;
+     margin-left: 5px;
+     width: 40px;
+     height: 40px;
+     background-color: #F00;
+     border-radius: 50%;
+     box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;
+     -webkit-animation: blinkRed 0.5s infinite;
+     -moz-animation: blinkRed 0.5s infinite;
+     -ms-animation: blinkRed 0.5s infinite;
+     -o-animation: blinkRed 0.5s infinite;
+     animation: blinkRed 0.5s infinite;
+ }
+ 
+ @-webkit-keyframes blinkRed {
+     from {
+         background-color: #F00;
+     }
+     50% {
+         background-color: #A00;
+         box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+     }
+     to {
+         background-color: #F00;
+     }
+ }
+ 
+ @-moz-keyframes blinkRed {
+     from {
+         background-color: #F00;
+     }
+     50% {
+         background-color: #A00;
+         box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+     }
+     to {
+         background-color: #F00;
+     }
+ }
+ 
+ @-ms-keyframes blinkRed {
+     from {
+         background-color: #F00;
+     }
+     50% {
+         background-color: #A00;
+         box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+     }
+     to {
+         background-color: #F00;
+     }
+ }
+ 
+ @-o-keyframes blinkRed {
+     from {
+         background-color: #F00;
+     }
+     50% {
+         background-color: #A00;
+         box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+     }
+     to {
+         background-color: #F00;
+     }
+ }
+ 
+ @keyframes blinkRed {
+     from {
+         background-color: #F00;
+     }
+     50% {
+         background-color: #A00;
+         box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;
+     }
+     to {
+         background-color: #F00;
+     }
+ }
+ 
+ .scaleDown50 {
+     -webkit-transform: scale(.5, .5);
+     -ms-transform: scale(.5, .5);
+     transform: scale(.5, .5);
+ }
+ 
+ .scaleDown60 {
+     -webkit-transform: scale(.6, .6);
+     -ms-transform: scale(.6, .6);
+     transform: scale(.6, .6);
+ }
+ 
+ .scaleDown70 {
+     -webkit-transform: scale(.7, .7);
+     -ms-transform: scale(.7, .7);
+     transform: scale(.7, .7);
+ }
+ 
+ .scaleDown80 {
+     -webkit-transform: scale(.8, .8);
+     -ms-transform: scale(.8, .8);
+     transform: scale(.8, .8);
+ }
+
+ .neumatico_select {
+     background: url(./assets/img/neumaticos/bridgestone-vrdp.png);
+ }
+ 
+ .camion_6p {
+     background: url(./assets/img/camion_6p.png);
+ }
+ 
+ .cargador_4p {
+     background: url(./assets/img/cargador_4p.png);
+ }
+ 
+ .camioneta_4p {
+     background: url(./assets/img/camioneta_4p.png);
+ }
+ 
+ .icono-x48 {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+    background-position: center !important;
+ }
+ 
+ .icono-x36 {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    width: 36px !important;
+    height: 36px !important;
+    margin: 0 !important;
+    background-position: center !important;
+ }
+ 
+ .icono-x24 {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 !important;
+    background-position: center !important;
+ }
+ .icono-x16 {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 !important;
+    background-position: center !important;
+}
+ /* Botón reconocer alarma */
+ 
+ @-webkit-keyframes twinkle {
+     from {
+         opacity: 0;
+     }
+     to {
+         opacity: 1;
+     }
+ }
+ 
+ @-moz-keyframes twinkle {
+     from {
+         opacity: 0;
+     }
+     to {
+         opacity: 1;
+     }
+ }
+ 
+ @keyframes twinkle {
+     from {
+         opacity: 0;
+     }
+     to {
+         opacity: 1;
+     }
+ }
+ 
+ #boton-reconocer-alarma {
+     position: absolute;
+     width: 100px;
+     height: 100px;
+     overflow: hidden;
+     left: calc(50% - 80px);
+     top: 140px;
+     cursor: pointer;
+     cursor: hand;
+ }
+ 
+ #boton-reconocer-alarma img {
+     position: absolute;
+     left: 0;
+     top: 0;
+     width: 100%;
+ }
+ 
+ #boton-reconocer-alarma img:nth-child(2) {
+     opacity: .99;
+     -webkit-animation: twinkle .75s ease-in alternate infinite;
+     -moz-animation: twinkle .75s ease-in alternate infinite;
+     animation: twinkle .75s ease-in alternate infinite;
+     transition-delay: .75s;
+ }
+ 
+ .lblpos {
+     position: absolute;
+     font-size: 18px;
+     color: rgba(33, 33, 33, 1);
+     width: 100%;
+     text-align: center;
+     height: 36px;
+     padding-top: 5px;
+     border-radius: 36px;
+ }
+ 
+ .lblpos.bottom {
+     top: 105px;
+ }
+ 
+ .lblpos.top {
+     top: -25px;
+ }
+ 
+ .lblpos.middle {
+     top: 40px;
+     background: rgba(207, 216, 220, 0.5);
+ }
+
+ .foot-filter{
+    width: 100%;
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-family: Arial, FontAwesome;    
+  }
+.foot-filter::-webkit-input-placeholder:before,
+.foot-filter::-moz-placeholder:before,
+.foot-filter::-ms-input-placeholder:before,
+.foot-filter::placeholder:before{
+    content: "&#xf0b0 ";
+}

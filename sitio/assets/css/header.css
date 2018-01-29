@@ -1,0 +1,24 @@
+.gpsico {
+    width: 24px;
+    height: 24px;
+    background-size: 24px 24px !important;
+    background-repeat: no-repeat !important;
+    padding-right: 36px;
+    margin-top: 5px;
+}
+
+.icon-arrow-normal {
+    background: url('../img/flecha1colores.png');
+}
+
+.icon-arrow-exceso {
+    background: url('../img/flecha2colores.png');
+}
+
+.icon-inicio {
+    background: url('../img/circulo_blanco.png');
+}
+
+.icon-fin {
+    background: url('../img/circulo_negro.png');
+}

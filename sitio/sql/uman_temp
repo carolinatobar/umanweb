@@ -1,0 +1,4 @@
+CREATE SCHEMA `uman_temp` ;
+
+ALTER TABLE `uman_plantilla` 
+ADD COLUMN `PRE_ALARMA` INT(3) NULL DEFAULT 0 AFTER `PIF`;

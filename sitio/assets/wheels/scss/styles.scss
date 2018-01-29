@@ -1,0 +1,354 @@
+/*FIX VIEWPORT*/
+@viewport
+{ 
+  zoom: 1.0; 
+  width: extend-to-zoom;
+}
+@-ms-viewport
+{ 
+  width: extend-to-zoom; zoom: 1.0;
+}
+
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:200,200i,300,300i,400,400i,600,600i,700,700i,900');
+
+// GENERAL BREAKPOINTS
+$xxs: "(max-width: 340px)";
+$xs: "(max-width: 767px)";
+$sm: "(max-width: 991px)";
+$md: "(max-width: 1199px)";
+$lg: "(min-width: 1200px)";
+
+// CUSTOM BREAKPOINTS
+$xxs_absolute: "(min-width: 0px) and (max-width: 339px)";
+$xs_absolute: "(min-width: 340px) and (max-width: 767px)";
+$sm_absolute: "(min-width: 768px) and (max-width: 991px)";
+$md_absolute: "(min-width: 992px) and (max-width: 1199px)";
+$lg_absolute: "(min-width: 1200px)";
+
+// COLORES
+$white: #ffffff;
+$black: #353535;
+$gray: #EEEEEE;
+$skyblue_steel: #7F9EB3;
+$skyblue: #94B5C2;
+$deep_gray: #8DA0AB;
+
+//MIXINGS 
+@mixin zero 
+{
+  padding: 0;
+  margin: 0;
+}
+@mixin animate
+{
+   transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+}
+
+//SCROLLBARS
+::-webkit-scrollbar 
+{
+  width: 10px;
+  @include animate;
+}
+
+::-webkit-scrollbar-track 
+{
+  background: $white;
+  @include animate;
+}
+
+.scrollable-content::-webkit-scrollbar * 
+{
+  background: $white;
+}
+
+::-webkit-scrollbar-thumb 
+{
+  background: $skyblue;
+  @include animate;
+}
+
+//AUX
+html
+{
+  font: 
+  {
+    size: 20px; //BASE REM
+  }
+  @include zero;
+  overflow-x: hidden;
+}
+
+body 
+{
+  @include zero;
+  overflow-x: hidden;
+}
+
+.no_margen > [class*='col-'] //EVITA MARGENES BOOTSTRAP EN EL PRIMER NIVEL DE LA GRILLA
+{
+  padding-right: 0;
+  padding-left: 0;
+}
+
+button, input, textarea, label, option //LIMPIAR PROPIEDADES PREDETERMINADAS
+{ 
+  box-shadow: none;
+  outline: none;
+  border-radius: 0;
+  @include zero;
+}
+
+ul, li //LIMPIAR PROPIEDADES PREDETERMINADAS
+{ 
+  text-indent: none;
+  list-style-type: none;
+  @include zero;
+}
+
+a, a:hover, a:active, a:visited //LIMPIAR PROPIEDADES PREDETERMINADAS
+{ 
+  text: 
+  {
+    decoration: inherit;
+    decoration: none;
+  }
+  color: inherit;
+  @include zero;
+}
+
+p, h1, h2, h3, h4, h5, h6, span 
+{
+  @include zero;
+  -webkit-text-shadow: none;
+  -moz-text-shadow: none;
+  text-shadow: none;
+  text: 
+  {
+    decoration: inherit;
+    decoration: none;
+  }
+  color: inherit;
+}
+
+// WHEELS
+
+.blc-space_wheel
+{
+  width: 100%;
+  display: block;
+  height: auto;
+  padding: 1rem;
+}
+
+.blc-space_wheel_flex
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: stretch;
+  width: 100%;
+  height: auto;
+  background-color: $white;
+}
+
+.blc-article_wheel
+{
+  background-color: $gray;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  max-height: 250px;
+  min-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.blc-ctr_abslt
+{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 1.65rem;
+  padding-bottom: 1.65rem;
+}
+
+.blc-figure_cntr
+{
+  background-color: $skyblue_steel;
+  width: 0.75rem;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.blc-figure_fill
+{
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.25rem;
+  height: 100%;
+  background-color: $deep_gray;
+}
+
+.blc-figure_shine
+{
+  background-color: $skyblue;
+  width: 0.125rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0.25rem;
+}
+
+.blc-slot_space_blank
+{
+  height: 4rem;
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.blc-slot_wheel
+{
+  height: 1.8rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  &:last-of-type 
+  {
+    margin-bottom: 0rem;
+  }
+}
+
+.blc-slot_start_point
+{
+  display: inline-block;
+  position: relative;
+  height: 0.34rem;
+  border-radius: 0.25rem 0rem 0rem 0.25rem;
+  width: 0.5rem;
+  background-color: $skyblue_steel;
+}
+
+.blc-slot_end_point
+{
+  display: inline-block;
+  position: relative;
+  height: 0.34rem;
+  width: 0.5rem;
+  background-color: $skyblue_steel;
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+}
+
+.blc-slot_middle
+{
+  display: inline-block;
+  position: relative;
+  width: 1.95rem;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  margin-bottom: -0.55rem;
+  > span 
+  {
+    font-size: 1.6rem;
+    display: inline-block;
+    line-height: 1.8rem;
+    position: relative;
+    margin: 0 auto;
+  }
+}
+
+.blc-slot_wheels_zone_left
+{
+  background-color: $skyblue_steel;
+  height: 0.34rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  width: 100%;
+  > span 
+  {
+    font-size: 1.5rem;
+    margin-right: 0.125rem;
+    &:last-of-type
+    {
+      margin-right: 0;
+    }
+  }
+}
+
+.blc-slot_wheels_zone_right
+{
+  background-color: $skyblue_steel;
+  height: 0.34rem;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  > span 
+  {
+    font-size: 1.5rem;
+    margin-right: 0.125rem;
+    &:last-of-type
+    {
+      margin-right: 0;
+    }
+  }
+}
+
+.blc_h3_article_wheel
+{
+  font-family: 'Trebuchet MS', 'Verdana', 'Arial', sans-serif;
+  font-size: 0.5rem;
+  color: $black;
+  text-align: center;
+  display: block;
+  position: relative;
+  text-transform: uppercase;
+  position: absolute;
+  top: 3rem;
+  left: -2rem;
+  transform: rotate(-90deg);
+}
+
+
+
+
+
+
+
+
